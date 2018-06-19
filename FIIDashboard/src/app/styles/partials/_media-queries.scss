@@ -1,0 +1,21 @@
+$mobile: 'only screen and (max-width: 599px)';
+$tablet-portrait: 'only screen and (min-width: 600px) and (max-width: 899px)';
+$tablet-landscape: 'only screen and (min-width: 900px) and (max-width: 1199px)';
+$desktop: 'only screen and (min-width: 1200px)';
+
+/* ================
+== USAGE EXAMPLE ==
+
+@media #{$mobile} {
+  background: red;
+}
+
+@media #{$mobile} and #{$tablet-portrait} {
+  background: red;
+}
+
+@media #{$mobile}, #{$tablet-portrait} {
+  background: red;
+}
+
+*/

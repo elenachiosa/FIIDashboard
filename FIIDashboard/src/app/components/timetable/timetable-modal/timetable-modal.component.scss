@@ -1,0 +1,57 @@
+@import 'partials';
+
+.timetable-details-container {
+    display: grid;
+
+    grid-template-columns: repeat(2, 200px);
+
+    .cell {
+        margin-bottom: 20px;
+
+        .cell-title {
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            color: color(mono, regent);
+
+            span {
+                margin-right: 5px;
+                font-size: 12px;
+            }
+        }
+
+        .cell-content {
+            display: flex;
+            align-items: center;
+            text-transform: capitalize;
+            .ti-angle-right {
+                margin: 0 4px;
+            }
+        }
+
+        .ti-angle-right {
+            font-size: 6px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.go-to-subject {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+@media #{$mobile}, #{$tablet-portrait} {
+    .timetable-details-container {
+        grid-template-columns: repeat(1, 200px);
+    }
+    .go-to-subject {
+        button {
+            width: 100%;
+        }
+    }
+}

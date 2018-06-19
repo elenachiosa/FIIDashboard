@@ -1,0 +1,31 @@
+@import 'shared/tables';
+
+:host {
+    .history {
+        margin-top: 40px;
+    }
+
+    .amount {
+        text-transform: uppercase !important;
+    }
+
+    .status {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        justify-content: center;
+
+        .ti-check {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 22px;
+            height: 22px;
+            margin-left: 10px;
+            font-size: 10px;
+            color: color(accents, green);
+            border: 1px solid color(accents, green);
+            border-radius: 50%;
+            text-shadow: 0 0 1px color(accents, green);
+        }
+    }
+}

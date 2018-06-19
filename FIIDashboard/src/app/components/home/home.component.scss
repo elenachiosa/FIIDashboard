@@ -1,0 +1,140 @@
+@import 'partials';
+
+%tile {
+    position: relative;
+    overflow: hidden;
+    height: 140px;
+    padding: 20px;
+    transition: transform .3s ease, box-shadow .2s ease;
+    color: color(mono, lynch);
+    background: color(mono, porcelain);
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.03);
+        box-shadow: make-boxshadow(transparentize(color(mono, geyser), .5));
+    }
+
+    .tile-title {
+        font-size: 16px;
+    }
+}
+
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    margin-bottom: 30px;
+
+    .news-tile {
+        @extend %tile;
+
+        grid-column: 1 / 3;
+
+        .entry {
+            font-size: 14px;
+
+            .title {
+                margin-top: 10px;
+                font-size: 15px;
+                font-weight: 700;
+            }
+
+            .content {
+                margin-top: 10px;
+                line-height: 20px;
+
+                &::before {
+                    position: absolute;
+                    z-index: 99;
+                    bottom: 0;
+                    display: block;
+                    width: 100%;
+                    height: 10px;
+                    content: '';
+                    background: color(mono, porcelain);
+                }
+
+                &::after {
+                    position: absolute;
+                    z-index: 99;
+                    bottom: 10px;
+                    display: block;
+                    width: 100%;
+                    height: 30px;
+                    content: '';
+                    background: make-gradient(color(mono, porcelain), 0, transparent);
+                }
+            }
+        }
+    }
+
+    .email-tile {
+        @extend %tile;
+
+        grid-column: 3 / 3;
+
+        [class^='ti-'] {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 20px;
+            color: color(mono, gull);
+        }
+
+        .ti-bell {
+            margin-left: 4px;
+            animation: ring 3s ease infinite;
+            color: color(accents, orange);
+        }
+
+        .message {
+            display: block;
+            margin-top: 10px;
+        }
+    }
+}
+
+.updates {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    grid-column-gap: 30px;
+}
+
+@media #{$mobile}, #{$tablet-portrait} {
+    .tiles {
+        grid-template-columns: repeat(2, 1fr);
+
+        .news-tile {
+            grid-column: auto;
+        }
+
+        .email-tile {
+            grid-column: auto;
+        }
+    }
+
+    .updates {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media #{$desktop} {
+    .tiles {
+        grid-template-columns: repeat(4, 1fr);
+
+        .news-tile {
+            grid-column: 1 / 4;
+        }
+
+        .email-tile {
+            grid-column: 4 / 4;
+        }
+    }
+}
+
+.left-container {
+    h4 {
+        margin-top: 0;
+    }
+}

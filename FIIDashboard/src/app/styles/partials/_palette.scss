@@ -1,0 +1,28 @@
+$accent-base: #76eab2;
+$palette: (
+    primary: (
+        base: #2488d4,
+        light: #1eb3d9,
+    ),
+    accents: (
+        pink: adjust-hue($accent-base, -180%),
+        orange: adjust-hue($accent-base, -120%),
+        green: adjust-hue($accent-base, -60%),
+        cyan: $accent-base,
+        blue: adjust-hue($accent-base, 60%),
+        purple: adjust-hue($accent-base, 120%),
+    ),
+    mono: (
+      space: #263238,
+      spruce: #37474f,
+      fiord: #455a64,
+      cutty-sark: #546e7a,
+      lynch: #607d8b,
+      regent: #78909c,
+      gull: #90a4ae,
+      tower: #b0bec5,
+      geyser: #cfd8dc,
+      porcelain: #eceff1,
+      white: #fff
+  )
+);

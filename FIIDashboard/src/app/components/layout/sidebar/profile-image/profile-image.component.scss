@@ -1,0 +1,36 @@
+@import 'partials';
+$profileImageSize: 110px;
+
+.profile-image {
+    position: relative;
+    width: $profileImageSize;
+    height: $profileImageSize;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: box-shadow .3s ease, transform .2s ease;
+    border-radius: 50%;
+    background-position: 50% 50%;
+    background-size: cover;
+    box-shadow: 0 0 0 3px color(mono, spruce);
+    .ti-pencil {
+        position: absolute;
+        right: 3px;
+        bottom: 3px;
+        padding: 7px;
+        transition: transform $bounce-curve .3s;
+        transform: scale(.85);
+        font-size: 16px;
+        color: color(mono, regent);
+        border-radius: 50%;
+        background-color: color(mono, white);
+    }
+    &:hover {
+        transition: box-shadow .3s ease, transform .2s ease;
+        transform: scale(.95);
+        box-shadow: 0 0 0 4px color(mono, fiord);
+        .ti-pencil {
+            transition: transform $bounce-curve .3s;
+            transform: scale(1.05);
+        }
+    }
+}

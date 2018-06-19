@@ -1,0 +1,11 @@
+@function make-gradient($color1, $angle: 135, $color2: adjust-hue($color1, 25%)) {
+    @return linear-gradient($angle + 0deg, $color1, $color2);
+}
+
+@function make-boxshadow($color) {
+    @return 0 10px 40px 0 transparentize($color, .7), 0 10px 30px 0 transparentize(color(mono, space), .98);
+}
+
+@function color($color-name, $color-variant) {
+    @return map-get(map-get($palette, $color-name), $color-variant);
+}

@@ -1,0 +1,181 @@
+<ngb-tabset>
+  <ngb-tab>
+    <ng-template ngbTabTitle><span class="ti-time"></span> Timetable</ng-template>
+    <ng-template ngbTabContent>
+
+      <div class="timetable-container">
+        <div class="timetable">
+
+          <div class="group"
+               (click)="openGroupModal(activeTimetable)">
+            <fd-button secondary="true">{{activeTimetable[0].group}}</fd-button>
+          </div>
+          <div class="week-names">
+            <div *ngFor="let day of weekDays">
+              <div class="desktop">{{day.name}}</div>
+              <div class="mobile">{{day.shortName}}</div>
+            </div>
+          </div>
+
+          <div class="time-interval">
+            <div *ngFor="let interval of hourIntervals">
+              {{interval.start}} <span class="ti-angle-right"></span> {{interval.end}}
+            </div>
+          </div>
+
+          <div class="content">
+            <ng-container *ngFor="let interval of hourIntervals">
+              <ng-container *ngFor="let day of weekDays">
+                <div class="timetable-cell">
+                  <ng-container *ngFor="let timetableItem of activeTimetable; let i = index">
+                    <div *ngIf="matchInterval(interval, timetableItem.hourInterval) && matchDay(day, timetableItem.weekDay)"
+                         (click)="openTimetableItemModal(timetableItem)"
+                         class="accent-{{timetableItem.subject.color}} timetable-item">
+                      <div class="subject-title">
+                        <div class="desktop">{{timetableItem.subject.title}}</div>
+                        <div class="mobile">{{timetableItem.subject.shortTitle}}</div>
+                        <div class="fade-title"></div>
+                      </div>
+                      <div class="subject-extra accent-{{timetableItem.subject.color}}-text">
+                        <div>
+                          {{timetableItem.location}}
+                        </div>
+                        <div>
+                          {{timetableItem.type}}
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><span class="ti-search"></span> Find class</ng-template>
+    <ng-template ngbTabContent>
+      <div class="find-class-container">
+        <div class="results">
+          <div class="table">
+            <div class="header">
+              <div class="row">
+                <div class="cell">Subject</div>
+                <div class="cell">Professor</div>
+                <div class="cell">Type</div>
+                <div class="cell">Location</div>
+                <div class="cell">Time</div>
+                <div class="cell">Group</div>
+                <div class="cell">Day</div>
+                <div class="cell">Year</div>
+              </div>
+            </div>
+            <form class="filter">
+              <div class="row">
+                <div class="cell">
+                  <div class="input-field">
+                    <input type="text"
+                           spellcheck="false"
+                           [(ngModel)]="subjectModel"
+                           [ngbTypeahead]="searchSubject"
+                           name="subject"
+                           placeholder="Subject name" />
+                  </div>
+                </div>
+                <div class="cell">
+                  <div class="input-field">
+                    <input type="text"
+                           spellcheck="false"
+                           [(ngModel)]="professorModel"
+                           [ngbTypeahead]="searchProfessor"
+                           name="professor"
+                           placeholder="Professor name" />
+                  </div>
+                </div>
+                <div class="cell">
+                  <div class="input-field">
+                    <input type="text"
+                           spellcheck="false"
+                           [(ngModel)]="typeModel"
+                           [ngbTypeahead]="searchType"
+                           name="type"
+                           placeholder="Course or seminar" />
+                  </div>
+                </div>
+                <div class="cell">
+                  <div class="input-field">
+                    <input type="text"
+                           spellcheck="false"
+                           [(ngModel)]="roomModel"
+                           [ngbTypeahead]="searchRoom"
+                           name="room"
+                           placeholder="Room name" />
+                  </div>
+                </div>
+                <div class="cell">
+                  <div class="input-field">
+                    <input type="text"
+                           spellcheck="false"
+                           [(ngModel)]="hourIntervalModel"
+                           [ngbTypeahead]="searchHourInterval"
+                           name="hourInterval"
+                           placeholder="HH:MM - HH:MM" />
+                  </div>
+                </div>
+                <div class="cell">
+                  <div class="input-field">
+                    <input type="text"
+                           spellcheck="false"
+                           [(ngModel)]="groupModel"
+                           [ngbTypeahead]="searchGroup"
+                           name="group"
+                           placeholder="Group name" />
+                  </div>
+                </div>
+                <div class="cell">
+                  <div class="input-field">
+                    <input type="text"
+                           spellcheck="false"
+                           name="weekday"
+                           placeholder="Day of the week" />
+                  </div>
+                </div>
+                <div class="cell">
+                  <div class="input-field">
+                    <input type="text"
+                           spellcheck="false"
+                           name="year"
+                           placeholder="Academic year" />
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="content">
+              <ng-container *ngFor="let group of timetable">
+                <div *ngFor="let entry of group"
+                     class="row">
+                  <div class="cell">
+                    <span class="color-indicator accent-{{entry.subject.color}}"></span>
+                    <a [routerLink]="['/subject', entry.subject.shortTitle]">{{entry.subject.title}}</a>
+                  </div>
+                  <div class="cell">{{entry.professor}}</div>
+                  <div class="cell">{{entry.type}}</div>
+                  <div class="cell">{{entry.location}}</div>
+                  <div class="cell">{{entry.hourInterval.start}} - {{entry.hourInterval.end}}</div>
+                  <div class="cell">{{entry.group}}</div>
+                  <div class="cell">{{entry.weekDay.name}}</div>
+                  <div class="cell">{{entry.year}}</div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+
+

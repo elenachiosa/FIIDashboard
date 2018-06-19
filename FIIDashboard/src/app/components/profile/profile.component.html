@@ -1,0 +1,82 @@
+<form action="/" method="post" autocomplete="off">
+  <h3>Profile picture</h3>
+
+
+  <div class="profile-image-container">
+    <div>Drag and drop image or</div>
+    <fd-button secondary="true">
+      Browse
+    </fd-button>
+  </div>
+
+
+
+
+  <h3>Contact details</h3>
+
+
+  <div class="details-wrap">
+    <div class="input-field">
+      <input [(ngModel)]="email"
+             type="email"
+             spellcheck="false"
+             name="email"
+             value="email"
+             email
+             required />
+      <label>E-mail</label>
+      <span class="error">That doesn't look quite right... Have you followed the name@domain.com pattern?</span>
+    </div>
+
+    <div class="input-field">
+      <input [(ngModel)]="tel"
+             type="tel"
+             spellcheck="false"
+             name="tel"
+             value="tel"
+             maxlength="10"
+             minlength="10"
+             required />
+      <label>Phone number</label>
+      <span class="error">The number is invalid. Are you sure you typed 10 digits?</span>
+    </div>
+  </div>
+
+
+
+  <h3>Account details</h3>
+
+
+  <div class="details-wrap">
+    <div class="input-field">
+      <input readonly type="number" name="name" value="342666" />
+      <label>ID</label>
+    </div>
+
+    <div class="input-field">
+      <input readonly type="text" name="name" value="31090104SL140080" />
+      <label>Personal Number</label>
+    </div>
+
+    <div class="input-field">
+      <input readonly type="text" name="name" value="Ionescu D. Claudia" />
+      <label>Full name</label>
+    </div>
+
+    <div class="input-field">
+      <input readonly type="text" name="name" value="05/08/1995" />
+      <label>Birthday</label>
+    </div>
+
+    <div class="input-field">
+      <input readonly type="text" name="name" value="Maria" />
+      <label>Mother's name</label>
+    </div>
+
+    <div class="input-field">
+      <input readonly type="text" name="name" value="Dan" />
+      <label>Father's Name</label>
+    </div>
+  </div>
+
+</form>

@@ -1,0 +1,29 @@
+@import 'partials';
+
+:host {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    .ps {
+        height: 100vh;
+        padding: 30px;
+    }
+}
+
+@media #{$mobile}, #{$tablet-portrait} {
+    ::ng-deep {
+        .menu-open {
+            fd-content {
+                animation: slide-right-content .4s ease forwards;
+            }
+        }
+
+        .menu-close {
+            fd-content {
+                animation: slide-left-content .5s ease forwards;
+            }
+        }
+    }
+}
+

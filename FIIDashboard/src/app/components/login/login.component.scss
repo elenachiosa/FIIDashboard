@@ -1,0 +1,85 @@
+@import 'partials';
+@import 'shared/inputs';
+
+:host {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    background-color: color(mono, space);
+    background-image: url('../../../assets/images/bg_offset.jpg');
+    background-position-x: 20%;
+    background-size: cover;
+    .input-field {
+        margin-bottom: 40px;
+    }
+}
+
+.left-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    flex-direction: column;
+    background-color: color(mono, white);
+    .logo {
+        margin: 20px 0 10px 0;
+        font-size: 24px;
+        color: color(mono, regent);
+        span {
+            font-weight: 700;
+            color: color(primary, light);
+        }
+    }
+    .description {
+        width: 148px;
+        margin-bottom: 80px;
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.3;
+        color: color(mono, regent);
+    }
+    form {
+        width: 50%;
+
+        fd-button {
+            ::ng-deep button {
+                width: 100%;
+            }
+            &:last-of-type ::ng-deep button {
+                margin-top: 20px;
+            }
+        }
+        .forgot-password {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+    }
+}
+
+.right-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    img {
+        width: 200px;
+    }
+}
+
+@media #{$mobile}, #{$tablet-portrait} {
+    .left-container {
+        form {
+            width: 60%;
+        }
+    }
+    .right-container {
+        display: none;
+    }
+}

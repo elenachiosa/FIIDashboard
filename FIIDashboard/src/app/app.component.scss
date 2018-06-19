@@ -1,0 +1,7 @@
+@import 'partials';
+
+:host {
+    display: flex;
+    flex: 1;
+    overflow-x: hidden;
+}

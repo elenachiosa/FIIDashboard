@@ -1,0 +1,6 @@
+<div class="entry">
+  <div>
+    <span [class]="icon"></span> <em>{{who}}</em> {{action}} <em>{{what}}</em> <span *ngIf="where.title">in</span> <a [routerLink]="['/subject', where.shortTitle]">{{where.title}}</a> <ng-content></ng-content>
+  </div>
+  <span class="date">{{when}}</span>
+</div>

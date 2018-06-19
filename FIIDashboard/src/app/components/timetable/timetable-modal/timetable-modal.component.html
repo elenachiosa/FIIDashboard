@@ -1,0 +1,65 @@
+<fd-modal [title]='timetableItem.subject.title'
+       (close)="closeModal()">
+
+  <div class="timetable-details-container">
+    <div class="cell">
+      <div class="cell-title">
+        <span class="ti-time"></span>Time interval
+      </div>
+      <div class="cell-content">
+        {{timetableItem.hourInterval.start}}
+        <span class="ti-angle-right"></span>
+        {{timetableItem.hourInterval.end}}
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-title">
+        <span class="ti-calendar"></span>Day of the week
+      </div>
+      <div class="cell-content">
+        {{timetableItem.weekDay.name}}
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-title">
+        <span class="ti-clipboard"></span>Type
+      </div>
+      <div class="cell-content">
+        {{timetableItem.type}}
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-title">
+        <span class="ti-location-pin"></span>Room
+      </div>
+      <div class="cell-content">
+        {{timetableItem.location}}
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-title">
+        <span class="ti-user"></span>Professor
+      </div>
+      <div class="cell-content">
+        {{timetableItem.professor}}
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-title">
+        <span class="ti-ruler-alt"></span>Year
+      </div>
+      <div class="cell-content">
+        {{timetableItem.year}}
+      </div>
+    </div>
+  </div>
+
+  <div class="go-to-subject">
+    <fd-button [routerLink]="['/subject', timetableItem.subject.shortTitle]"
+            (click)="closeModal()"
+            secondary="true">
+      View class page
+    </fd-button>
+  </div>
+
+</fd-modal>

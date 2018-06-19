@@ -1,0 +1,34 @@
+<div [routerLink]="['/subject', subject.shortTitle]"
+     [style.overflow]="waves ? 'hidden' : 'visible'"
+     class="tile accent-{{subject.color}}-gradient">
+  <div *ngIf="title"
+       class="title">{{subject.title}}</div>
+  <div class="summary">
+    <div *ngIf="waves"
+         [style.bottom]="calculateFinalGrade(subject)*10 + '%'"
+         [style.animationDelay]="-i + 's'"
+         class="wave"></div>
+    <div  *ngIf="waves"
+         [style.bottom]="calculateFinalGrade(subject)*10 + '%'"
+         [style.animationDelay]="-i + 2 + 's'"
+         class="wave"></div>
+  </div>
+  <div class="percentage">
+    <span [class]="calculateFinalGrade(subject) >= 5 ? 'ti-face-smile' : ''"></span>
+    <span [innerHtml]="calculateFinalGrade(subject)"></span>
+    <div class="tooltip">
+      <ng-container *ngIf="calculateFinalGrade(subject) >= 7">
+        Great job!
+      </ng-container>
+      <ng-container *ngIf="calculateFinalGrade(subject) >= 5 && calculateFinalGrade(subject) < 7">
+        You passed!
+      </ng-container>
+      <ng-container *ngIf="calculateFinalGrade(subject) >= 3 && calculateFinalGrade(subject) < 5">
+        Almost there!
+      </ng-container>
+      <ng-container *ngIf="calculateFinalGrade(subject) < 3">
+        Getting started
+      </ng-container>
+    </div>
+  </div>
+</div>

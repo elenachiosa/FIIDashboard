@@ -1,0 +1,65 @@
+@import 'partials';
+
+:host {
+    display: block;
+}
+
+%button {
+    min-width: 100px;
+    height: 40px;
+    padding: 0 12px;
+    transition: transform .3s $bounce-curve, box-shadow .3s ease;
+    border: none;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.03);
+    }
+
+    &[disabled] {
+        background: color(mono, geyser);
+
+        &:hover {
+            cursor: not-allowed;
+            transform: scale(1);
+            box-shadow: none;
+        }
+    }
+}
+
+button {
+    color: color(mono, white);
+    background: make-gradient(color(primary, light));
+
+    @extend %button;
+
+    &:hover {
+        box-shadow: make-boxshadow(color(primary, light));
+    }
+
+    &:active {
+        background: make-gradient(darken(color(primary, light), 2%));
+    }
+    // Button variations:
+    &.large {
+        min-width: 120px;
+        height: 46px;
+        padding: 0 16px;
+    }
+
+    &.secondary {
+        color: color(primary, base);
+        border: 1px solid;
+        border-image: make-gradient(color(primary, light)) 1;
+        background: (color(mono, white));
+
+        &:hover {
+            box-shadow: make-boxshadow(color(primary, light));
+        }
+
+        &:active {
+            border-image: make-gradient(darken(color(primary, light), 2%)) 1;
+            background: darken(color(mono, white), 2%);
+        }
+    }
+}

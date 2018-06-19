@@ -1,0 +1,173 @@
+.input-field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 30px;
+
+    label {
+        order: -1;
+        transition: transform .2s ease;
+    }
+
+    .error {
+        position: absolute;
+        z-index: 9999;
+        top: 70px;
+        visibility: hidden;
+        width: 100%;
+        padding: 10px;
+        transition: transform .2s ease, opacity .3s ease;
+        transform: translateY(-10%);
+        animation: blink 3s ease infinite;
+        font-size: 14px;
+        opacity: 0;
+        color: color(mono, white);
+        background: color(accents, pink);
+        box-shadow: 0 0 10px 0 transparentize(color(accents, pink), .4);
+    }
+}
+
+input:not([type=radio]) {
+    width: 100%;
+    height: 36px;
+    padding: 7px 10px;
+    transition: border .2s ease, transform .2s ease, box-shadow .3s ease;
+    font-size: 16px;
+    color: color(mono, regent);
+    border: 1px solid color(mono, geyser);
+
+    &:focus,
+    &:active {
+        transform: scale(1.03);
+        color: color(primary, light);
+        border: 1px solid color(primary, light);
+        box-shadow: 0 0 10px 0 transparentize(color(primary, light), .8);
+
+        & ~ * {
+            transform: scale(1.03);
+            color: color(primary, light);
+        }
+    }
+
+    &:hover {
+        border: 1px solid color(primary, light);
+
+        & + label {
+            color: color(primary, light);
+        }
+    }
+
+    &:read-only {
+        padding: 0 !important;
+        cursor: default;
+        border: none;
+        box-shadow: none;
+
+        &:focus,
+        &:active {
+            transform: none;
+
+            & + label {
+                transform: none;
+                color: color(mono, cutty-sark);
+            }
+        }
+
+        &:hover {
+            & + label {
+                color: color(mono, fiord);
+            }
+        }
+    }
+
+    &::placeholder {
+        color: color(mono, geyser);
+    }
+    /* =======  Angular validation  ======== */
+    &.ng-invalid ~ .error {
+        color: white;
+        visibility: visible;
+        transform: translateY(0%) scale(1.03);
+        opacity: .9;
+    }
+}
+
+input[type=time]::-webkit-inner-spin-button,
+input[type=time]::-webkit-outer-spin-button {
+    margin: 0;
+
+    appearance: none;
+}
+input[type=time]::-webkit-datetime-edit-ampm-field {
+    display: none;
+}
+
+label {
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    color: color(mono, cutty-sark);
+}
+
+::ng-deep ngb-typeahead-window {
+    position: absolute;
+    z-index: 999;
+    right: -3px !important;
+    left: -3px !important;
+    display: flex;
+    flex-direction: column;
+    animation: fade-in-typeahead .3s ease forwards;
+    border: 1px solid color(primary, light);
+    background: color(mono, white);
+    box-shadow: 0 0 10px 0 transparentize(color(primary, light), .8);
+
+    button {
+        min-height: 36px;
+        padding: 3px 10px;
+        cursor: pointer;
+        text-align: left;
+        font-size: 15px;
+        color: color(mono, fiord);
+        border: none;
+        background: color(mono, white);
+        &:hover,
+        &.active {
+            background: color(mono, porcelain);
+        }
+    }
+}
+
+input[type='radio'] {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform .3s, border .3s, box-shadow .3s;
+    border: 1px solid color(mono, geyser);
+    border-radius: 50%;
+
+    appearance: none;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+    &:checked {
+        border: 1px solid color(accents, green) !important;
+        box-shadow: 0 0 30px color(accents, green) !important;
+
+        &:after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            content: '\e64c';
+            transform: translate(-50%, -50%);
+            animation: fade-in .3s;
+            font-family: 'themify';
+            font-size: 10px;
+            color: color(accents, green);
+            text-shadow: 0 0 1px color(accents, green);
+        }
+    }
+}

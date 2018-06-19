@@ -1,0 +1,14 @@
+<div class="left-container">
+
+    <span (click)="showMenu()"
+          class="ti-menu"></span>
+    <span class="active-route">{{this.router.url | removeSlash}}</span>
+
+    <span class="welcome-message">Welcome, <strong>Claudia</strong></span>
+
+</div>
+<div [routerLink]="['/login']"
+     class="right-container logout">
+  <span class="ti-power-off"></span>Logout
+</div>
+

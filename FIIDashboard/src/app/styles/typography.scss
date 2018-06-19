@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700&amp;subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: color(mono, cutty-sark);
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 700;
+    color: color(primary, light);
+}
+
+.color-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}

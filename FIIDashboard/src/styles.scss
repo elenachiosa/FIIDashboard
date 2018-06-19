@@ -1,0 +1,28 @@
+@import 'partials';
+@import 'typography';
+@import 'normalizer';
+@import 'scrollbar';
+
+@include generate-accents;
+@include loader;
+
+html {
+    height: 100%;
+
+    & body {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        height: 100%;
+        font-family: $primary-font;
+        text-rendering: geometricPrecision;
+        color: color(mono, fiord);
+        background: color(mono, white);
+    }
+}
+
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}

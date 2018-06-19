@@ -1,0 +1,86 @@
+@import 'partials';
+
+:host {
+    position: relative;
+    flex: 270px 0 0;
+    color: color(mono, gull);
+    background-color: color(mono, space);
+
+    .ti-close {
+        position: absolute;
+        z-index: 10;
+        top: 10px;
+        right: 10px;
+        display: none;
+        padding: 20px;
+        cursor: pointer;
+        border-radius: 50%;
+        background-color: transparentize(color(mono, space), .5);
+    }
+}
+
+.ps {
+    width: 100%;
+    height: 100vh;
+}
+
+.scroll-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 60px;
+}
+
+.app-title {
+    font-size: 20px;
+    color: color(mono, geyser);
+    span {
+        font-weight: bold;
+        color: color(primary, light);
+    }
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    font-size: 16px;
+    .user-role {
+        margin-top: 5px;
+        font-size: 14px;
+        font-style: italic;
+    }
+}
+
+@media #{$mobile}, #{$tablet-portrait} {
+    :host {
+        display: none;
+        .ti-close {
+            display: block !important;
+        }
+    }
+
+    ::ng-deep .menu-open {
+        fd-sidebar {
+            display: flex;
+            animation: slide-in-menu .5s ease forwards;
+        }
+    }
+
+    ::ng-deep .menu-close {
+        fd-sidebar {
+            display: flex;
+            animation: slide-out-menu .4s ease forwards;
+        }
+    }
+
+    .app-title {
+        display: none;
+    }
+
+    ::ng-deep .profile-image {
+        margin-top: 0 !important;
+    }
+}
+

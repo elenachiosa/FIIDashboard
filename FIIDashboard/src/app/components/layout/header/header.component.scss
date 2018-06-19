@@ -1,0 +1,57 @@
+@import 'partials';
+
+:host {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: color(mono, cutty-sark);
+
+    [class^='ti-'] {
+        margin-right: 7px;
+        font-size: 14px;
+    }
+}
+
+.left-container {
+    display: flex;
+    align-items: center;
+
+    .ti-menu {
+        display: none;
+        cursor: pointer;
+    }
+
+    .active-route {
+        display: none;
+        text-transform: uppercase;
+    }
+}
+
+.logout {
+    cursor: pointer;
+    transition: color .2s ease;
+    text-transform: uppercase;
+    font-weight: 700;
+    &:hover {
+        color: color(primary, light);
+    }
+}
+
+
+
+@media #{$mobile}, #{$tablet-portrait} {
+    .ti-menu {
+        display: inline !important;
+        margin-right: 12px !important;
+        font-size: 21px !important;
+    }
+
+    .welcome-message,
+    .logout {
+        display: none;
+    }
+
+    .active-route {
+        display: inline !important;
+    }
+}

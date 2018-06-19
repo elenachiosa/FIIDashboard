@@ -1,0 +1,191 @@
+<ng-container *ngFor="let subject of currentSemester.concat(leftovers)">
+  <ng-container *ngIf="activeSubject===subject.shortTitle">
+    <div class="subject-info">
+      <div class="left-container">
+        <h3>
+          <span _ngcontent-c7=""
+                class="color-indicator accent-{{subject.color}}"></span>
+          {{subject.title}}
+        </h3>
+        <p>
+          Taught by:
+          <a>{{subject.teachers[0]}}</a>
+        </p>
+        <h3>Description</h3>
+        <p class="read-more"
+           [class.expanded]="expanded"
+           [class.collapsed]="!expanded">
+          {{subject.description}}
+        </p>
+        <a (click)="expanded = !expanded">
+          <ng-container *ngIf="!expanded">
+            <span class="ti-angle-down"></span> Show more
+          </ng-container>
+          <ng-container *ngIf="expanded">
+            <span class="ti-angle-up"></span> Show less
+          </ng-container>
+        </a>
+      </div>
+      <div class="right-container">
+        <div class="subject-details">
+
+          <div class="row">
+            <div class="title">
+              <span>Final grade</span>
+              <div class="info">
+                <span class="ti-info-alt"></span>
+                <span class="tooltip">50% course, 50% seminar</span>
+              </div>
+
+            </div>
+            <!--<span></span>-->
+            <span class="data"
+                  [innerHtml]="calculateFinalGrade(subject)"></span>
+          </div>
+
+          <div class="row">
+            <div class="title">
+              <span>Course</span>
+              <div class="info">
+                <span class="ti-info-alt"></span>
+                <span class="tooltip">Course exam</span>
+              </div>
+            </div>
+            <!--<button class="secondary">History</button>-->
+            <span class="data">{{subject.course}}</span>
+          </div>
+
+          <div class="row">
+            <div class="title">
+              <span>Seminar</span>
+              <div class="info">
+                <span class="ti-info-alt"></span>
+                <span class="tooltip">Seminar average</span>
+              </div>
+            </div>
+            <!--<button class="secondary">History</button>-->
+            <span class="data">{{subject.seminar}}</span>
+          </div>
+
+        </div>
+
+        <div class="history">
+          <fd-log-entry [icon]="'ti-pencil'"
+                        [who]="subject.teachers[0]"
+                        [action]="'graded'"
+                        [what]="'Homework-13'"
+                        [where]="''"
+                        [when]="'07/05/2017, 08:35'">
+            with an
+            <span class="grade">8</span>
+          </fd-log-entry>
+
+          <fd-button secondary="true">View history</fd-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="subject-tabs">
+      <ngb-tabset>
+        <ngb-tab>
+          <ng-template ngbTabTitle>
+            <span class="ti-folder"></span> Files</ng-template>
+          <ng-template ngbTabContent>
+
+            <div class="total-items">
+              <ng-container *ngFor="let courseNumber of courses">
+                <div class="row">
+                  <div class="preview">
+                    <span class="preview-message">No preview</span>
+                    <div class="button-wrapper">
+                      <fd-button [secondary]="true">
+                        <span class="ti-download"></span>
+                      </fd-button>
+                    </div>
+                  </div>
+                  <fd-log-entry [icon]="'ti-file'"
+                                [who]="''"
+                                [action]="''"
+                                [what]="'Course-' + courseNumber + '.pdf'"
+                                [where]="''"
+                                [when]="'07/05/2017, 08:35'"></fd-log-entry>
+                </div>
+              </ng-container>
+            </div>
+
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <ng-template ngbTabTitle>
+            <span class="ti-files"></span> Homework</ng-template>
+          <ng-template ngbTabContent>
+
+            <div class="total-items">
+              <ng-container *ngFor="let hwItem of homeworks">
+                <div class="row">
+                  <div class="preview">
+                    <span class="preview-message">No preview</span>
+                    <div class="button-wrapper">
+                      <fd-button [secondary]="true">
+                        <span class="ti-download"></span>
+                      </fd-button>
+                    </div>
+                  </div>
+                  <fd-log-entry [icon]="'ti-file'"
+                                [who]="''"
+                                [action]="''"
+                                [what]="'Homework-' + hwItem + '.pdf'"
+                                [where]="''"
+                                [when]="'07/05/2017, 08:35'"></fd-log-entry>
+                </div>
+              </ng-container>
+            </div>
+
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <ng-template ngbTabTitle>
+            <span class="ti-check-box"></span> Attendance</ng-template>
+          <ng-template ngbTabContent>
+
+            <div class="attendance">
+              <div class="registration">
+                <h4 class="title">This week</h4>
+                <div class="general-messages">
+                  <h4>
+                    <span class="ti-info-alt"></span> You've been absent 2 times.</h4>
+                  <h5>A minimum of 7 attendances are required to pass.</h5>
+                </div>
+
+                <div class="session-active">
+
+                  <div class="latest-week">
+                    <div class="week-details">
+                      <strong>Week 14</strong>
+                      <span class="ti-calendar"></span>25/07/2018
+                      <span class="ti-time"></span>08:01 - 08:16</div>
+                    <input type="radio" />
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="history">
+                <h4 class="title">Attendance history</h4>
+                <ng-container *ngFor="let attendance of attendances">
+                  <div class="entry">
+                    <span>Week {{attendance}}</span>
+                    <span [ngClass]="attendance == '5' || attendance == '13' ? 'ti-close' : 'ti-check'"></span>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+
+
+  </ng-container>
+</ng-container>

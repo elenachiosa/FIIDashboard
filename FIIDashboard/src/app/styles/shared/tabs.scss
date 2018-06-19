@@ -1,0 +1,55 @@
+@import 'partials';
+
+::ng-deep ngb-tabset {
+    display: flex;
+    flex-direction: column;
+
+    ul {
+        display: flex;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+            position: relative;
+            padding-right: 30px;
+            padding-bottom: 10px;
+
+            a {
+                display: flex;
+                align-items: center;
+
+                span {
+                    margin-right: 5px;
+                }
+            }
+
+            a.active {
+                &::before {
+                    position: absolute;
+                    bottom: 0;
+                    height: 2px;
+                    content: '';
+                    animation: tab-selection .3s ease forwards;
+                    border-radius: 2px;
+                    background: color(primary, light);
+                }
+            }
+        }
+    }
+
+    .tab-content {
+        .tab-pane {
+            animation: fade-in .3s;
+        }
+    }
+
+    @media #{$mobile}, #{$tablet-portrait} {
+        a {
+            flex-direction: column;
+            span {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}

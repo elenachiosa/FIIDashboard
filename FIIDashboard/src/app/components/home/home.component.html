@@ -1,0 +1,76 @@
+<h3>Summary</h3>
+<div class="tiles">
+
+  <div class="news-tile">
+    <div class="tile-title">News</div>
+    <div class="entry">
+      <div class="title">"Tabere Studentesti" National Program 2018</div>
+      <div class="content">
+        Between 24<sup>th</sup> of April and 22<sup>nd</sup> of May, you may submit your request for a spot.
+        You can submit your request by sending it via email to secretariat@info.uaic.ro.</div>
+    </div>
+  </div>
+
+  <div class="email-tile">
+    <div class="tile-title">E-mail</div>
+    <span class="ti-email"></span>
+    <span class="ti-bell"></span>
+    <div class="message">You have <strong>2</strong> new emails!</div>
+  </div>
+
+
+
+  <ng-container *ngFor="let subject of currentSemester.concat(leftovers); let i = index">
+    <fd-subject-tile [subject]="subject"
+                  [i]="i"></fd-subject-tile>
+  </ng-container>
+
+</div>
+
+<h3>Activity</h3>
+<div class="updates">
+  <div class="left-container">
+    <h4>My latest actions</h4>
+    <fd-log-entry [icon]="'ti-upload'"
+               [who]="''"
+               [action]="'Uploaded'"
+               [what]="'Homework-14.zip'"
+               [where]="currentSemester[0]"
+               [when]="'Today, 14:02'"></fd-log-entry>
+    <fd-log-entry [icon]="'ti-upload'"
+               [who]="''"
+               [action]="'Uploaded'"
+               [what]="'Homework-13.zip'"
+               [where]="currentSemester[1]"
+               [when]="'12/05/2017, 14:02'"></fd-log-entry>
+    <fd-log-entry [icon]="'ti-check'"
+               [who]="''"
+               [action]="'Registered'"
+               [what]="'attendance'"
+               [where]="currentSemester[0]"
+               [when]="'10/05/2017, 18:50'"></fd-log-entry>
+    <fd-log-entry [icon]="'ti-pencil'"
+               [who]="''"
+               [action]="'Updated'"
+               [what]="'contact details'"
+               [where]="''"
+               [when]="'07/05/2017, 08:32'"></fd-log-entry>
+  </div>
+
+  <div class="right-container">
+    <h4>My teachers' actions</h4>
+    <fd-log-entry [icon]="'ti-upload'"
+               [who]="professors[1]"
+               [action]="'uploaded'"
+               [what]="'Homework-13.pdf'"
+               [where]="currentSemester[4]"
+               [when]="'07/05/2017, 08:35'"></fd-log-entry>
+    <fd-log-entry [icon]="'ti-upload'"
+               [who]="professors[3]"
+               [action]="'uploaded'"
+               [what]="'Course-14.pdf'"
+               [where]="currentSemester[3]"
+               [when]="'06/05/2017, 12:49'"></fd-log-entry>
+  </div>
+</div>
+

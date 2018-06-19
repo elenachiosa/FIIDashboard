@@ -1,0 +1,57 @@
+<h3>Payment history</h3>
+
+<div class="table">
+  <div class="header">
+    <div class="row">
+      <div class="cell">Type</div>
+      <div class="cell">Subject</div>
+      <div class="cell">Semester</div>
+      <div class="cell">Year</div>
+      <div class="cell">Amount</div>
+      <div class="cell"></div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="row">
+      <div class="cell">
+        Reexamination
+      </div>
+      <div class="cell">
+        <a [routerLink]="['/subject', 'MA']">Mathematics</a>
+      </div>
+      <div class="cell">
+        1
+      </div>
+      <div class="cell">
+        2017
+      </div>
+      <div class="cell amount">
+        300 ron
+      </div>
+      <div class="cell status">
+        <fd-button secondary="true">Pay online</fd-button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cell">
+        Reexamination
+      </div>
+      <div class="cell">
+        <a [routerLink]="['404']">Computer networks</a>
+      </div>
+      <div class="cell">
+        1
+      </div>
+      <div class="cell">
+        2017
+      </div>
+      <div class="cell amount">
+        300 ron
+      </div>
+      <div class="cell status">
+        Paid
+        <span class="ti-check"></span>
+      </div>
+    </div>
+  </div>
+</div>

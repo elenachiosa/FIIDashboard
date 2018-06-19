@@ -1,0 +1,49 @@
+<div class="left-container">
+  <div class="logo">
+    <span>FII</span>Dashboard
+  </div>
+  <div class="description">
+    Follow your academic evolution with ease
+  </div>
+  <form autocomplete="off">
+    <div class="input-field">
+      <input [(ngModel)]="email"
+             spellcheck="false"
+             type="email"
+             name="email"
+             value="email"
+             email
+             required />
+      <label>email</label>
+      <div class="error">That doesn't look quite right... Have you followed the name@domain.com pattern?</div>
+    </div>
+
+    <div class="input-field">
+      <input [(ngModel)]="password"
+             spellcheck="false"
+             type="password"
+             name="password"
+             value="password"
+             required />
+      <label>password</label>
+      <div class="error">Password is required to continue</div>
+    </div>
+
+    <fd-button [routerLink]="['/home']"
+               large="true">
+      Login
+    </fd-button>
+
+    <fd-button secondary="true"
+               large="true"
+               class="register">
+      Register
+    </fd-button>
+
+    <a class="forgot-password">Oops, I forgot my password...</a>
+  </form>
+</div>
+<div class="right-container">
+  <img src="../../assets/images/sigla_uaic_eng_color3.png"
+       alt="University Logo" />
+</div>

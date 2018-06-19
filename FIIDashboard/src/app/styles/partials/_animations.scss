@@ -1,0 +1,319 @@
+// https://jdsteinbach.com/css/snippet-animate-display-transform/
+// ^ best known solution to animating automatic height (by animating max-height instead)
+
+@keyframes expand-submenu {
+    0% {
+        display: none;
+        max-height: 0;
+        transform: scaleY(0);
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    70% {
+        transform: scaleY(1.01);
+        opacity: 1;
+    }
+
+    100% {
+        max-height: 352px;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes collapse-submenu {
+    1% {
+        display: block;
+        max-height: 352px;
+        transform: scaleY(1) translateY(0%);
+    }
+
+    50% {
+        transform: scaleY(.3) translateY(-50%);
+    }
+
+    55% {
+        transform: scaleY(0) translateY(-200%);
+    }
+
+    90% {
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    100% {
+        display: none;
+        visibility: hidden;
+        max-height: 0;
+        transform: scale(0) translate(-200%);
+        opacity: 0;
+    }
+}
+
+@keyframes animate-loader-dots {
+    0% {
+        top: 20%;
+        left: 50%;
+        transform: scale(1);
+    }
+
+    16% {
+        top: 35%;
+        left: 75%;
+        transform: scale(3);
+    }
+
+    33% {
+        top: 65%;
+        left: 75%;
+        transform: scale(1);
+    }
+
+    50% {
+        top: 80%;
+        left: 50%;
+        transform: scale(3);
+    }
+
+    66% {
+        top: 65%;
+        left: 25%;
+        transform: scale(1);
+    }
+
+    83% {
+        top: 35%;
+        left: 25%;
+        transform: scale(3);
+    }
+
+    100% {
+        top: 20%;
+        left: 50%;
+        transform: scale(1);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes flip-in-modal {
+    0% {
+        transform: rotateX(60deg);
+        opacity: 0;
+
+        transform-style: preserve-3d;
+    }
+
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-menu {
+    0% {
+        position: absolute;
+        display: none;
+        width: 100%;
+        margin-right: 100%;
+        margin-left: -100%;
+    }
+
+    1% {
+        display: flex;
+    }
+
+    100% {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+@keyframes slide-out-menu {
+    0% {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    99% {
+        display: flex;
+    }
+
+    100% {
+        position: absolute;
+        display: none;
+        width: 100%;
+        margin-right: 100%;
+        margin-left: -100%;
+    }
+}
+
+@keyframes slide-right-content {
+    0% {
+        margin-left: 0;
+    }
+
+    100% {
+        margin-right: -100%;
+        margin-left: 100%;
+    }
+}
+
+@keyframes slide-left-content {
+    0% {
+        margin-right: -100%;
+        margin-left: 100%;
+    }
+
+    100% {
+        margin-left: 0;
+    }
+}
+
+@keyframes drift {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes tab-selection {
+    0% {
+        width: 0;
+        transform: translateX(50%);
+        opacity: 0;
+    }
+
+    100% {
+        width: calc(100% - 30px);
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    5% {
+        transform: scale(1) rotate(-30deg);
+    }
+
+    10% {
+        transform: scale(1.1) rotate(30deg);
+    }
+
+    15% {
+        transform: scale(1.1) rotate(-20deg);
+    }
+
+    20% {
+        transform: scale(1) rotate(20deg);
+    }
+
+    25% {
+        transform: rotate(-10deg);
+    }
+
+    30% {
+        transform: rotate(10deg);
+    }
+
+    35% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes render-timetable-items {
+    0% {
+        transform: translate(-25%, -25%) scale(.5);
+        opacity: 0;
+    }
+
+    10% {
+        transform: translate(-25%, -25%) scale(.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0%, 0%) scale(1);
+        opacity: 1;
+    }
+}
+
+
+@keyframes fade-in-typeahead {
+    0% {
+        transform: translateY(-50%) scaleY(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0) scaleY(1);
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: .8;
+    }
+
+    50% {
+        opacity: .95;
+    }
+
+    100% {
+        opacity: .8;
+    }
+}
+
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

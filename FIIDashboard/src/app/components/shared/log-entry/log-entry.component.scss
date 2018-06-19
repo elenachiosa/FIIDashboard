@@ -1,0 +1,27 @@
+@import 'partials';
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    margin: 16px 0;
+    line-height: 20px;
+
+    div {
+        line-height: 24px;
+    }
+
+    [class^='ti-']::before {
+        margin-right: 4px;
+        padding: 5px;
+        font-size: 10px;
+        color: color(mono, gull);
+        border-radius: 50%;
+        background: color(mono, porcelain);
+    }
+
+    .date {
+        margin-top: 8px;
+        font-size: 13px;
+        color: color(mono, gull);
+    }
+}

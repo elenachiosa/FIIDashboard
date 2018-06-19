@@ -1,0 +1,99 @@
+@import 'palette';
+@import 'functions';
+$accents: map-get($palette, accents);
+
+@mixin generate-accents {
+    @each $name, $value in $accents {
+        .accent-#{$name} {
+            transition: transform .3s ease, box-shadow .2s ease;
+            color: color(mono, white);
+            background-color: $value;
+            text-shadow: 0 0 30px darken($value, 30%);
+
+            .fade-title {
+                background: make-gradient($value, 0, transparent);
+            }
+        }
+
+        .accent-#{$name}-text {
+            color: $value;
+        }
+
+        .accent-#{$name}-gradient {
+            transition: transform .3s ease, box-shadow .2s ease;
+            color: color(mono, white);
+            background: make-gradient($value);
+            text-shadow: 0 0 30px darken($value, 40%);
+        }
+
+        .accent-#{$name},
+        .accent-#{$name}-gradient {
+            &:hover {
+                z-index: 2;
+                cursor: pointer;
+                transform: scale(1.03);
+                box-shadow: make-boxshadow($value);
+            }
+        }
+    }
+}
+
+@mixin break-words {
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+
+    overflow-wrap: break-word;
+}
+
+@mixin backdrop {
+    position: fixed;
+    z-index: 2147483646;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: fade-in .3s ease forwards;
+    background: transparentize(color(mono, space), .7);
+}
+
+@mixin loader {
+    .loader-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+
+            .dot {
+                position: absolute;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+
+                &:before {
+                    display: block;
+                    width: 5px;
+                    height: 5px;
+                    content: '';
+                }
+            }
+
+            @for $i from 1 through 6 {
+                .dot:nth-child(#{$i}) {
+                    $delay: .4 * $i;
+                    animation: animate-loader-dots 2.4s linear -#{$delay}s infinite backwards;
+                }
+            }
+        }
+    }
+}
+

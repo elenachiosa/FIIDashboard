@@ -1,0 +1,13 @@
+<fd-modal [title]='"View group"'
+       (close)="closeModal()">
+
+  <div class="group-modal-content">
+    <ng-container *ngFor="let timetableVariant of timetable">
+      <a [class.active]="timetableVariant[0].group === activeTimetable[0].group"
+         (click)="selectGroup(timetableVariant)">
+        {{timetableVariant[0].group}}
+      </a>
+    </ng-container>
+  </div>
+
+</fd-modal>

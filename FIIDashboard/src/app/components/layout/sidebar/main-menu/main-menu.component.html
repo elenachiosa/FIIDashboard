@@ -1,0 +1,50 @@
+<ng-container *ngFor="let menuItem of menuItems">
+  <!--NON expandable menu items-->
+  <p *ngIf="!menuItem.expandable"
+     (click)="hideMenu()"
+     [routerLink]="menuItem.title"
+     routerLinkActive="active">
+    <span class="ti-{{menuItem.icon}}"></span>
+    <span>{{menuItem.title}}</span>
+  </p>
+  <!--expandable menu items-->
+  <ng-container *ngIf="menuItem.expandable">
+    <p (click)="toggleSubmenu(menuItem)"
+       [ngClass]="menuItem.isExpanded ? 'expanded' : 'collapsed'">
+      <span class="ti-{{menuItem.icon}}"></span>
+      <span>{{menuItem.title}}</span>
+      <span *ngIf="menuItem.expandable"
+            [class.reversed]="menuItem.isExpanded"
+            class="ti-angle-down"></span>
+    </p>
+    <div class="submenu">
+      <ng-container *ngIf="menuItem.title!='links'">
+        <ng-container *ngFor="let submenuItem of menuItem.submenu">
+          <p [routerLink]="['/subject', submenuItem.shortTitle]"
+             routerLinkActive="active"
+             (click)="hideMenu()">
+            <span class="color-indicator accent-{{submenuItem.color}}"></span>
+            {{submenuItem.title}}
+          </p>
+        </ng-container>
+      </ng-container>
+      <!--hard coded links-->
+      <ng-container *ngIf="menuItem.title=='links'">
+        <p class="link">
+          <span class="color-indicator accent-green"></span>
+          <a href="http://www.uaic.ro/">UAIC</a>
+        </p>
+        <p class="link">
+            <span class="color-indicator accent-blue"></span>
+            <a href="https://www.info.uaic.ro/bin/Main/">FII</a>
+          </p>
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-container>
+<p [routerLink]="['/login']"
+   (click)="hideMenu()"
+   class="logout">
+  <span class="ti-power-off"></span>
+  <span>Logout</span>
+</p>

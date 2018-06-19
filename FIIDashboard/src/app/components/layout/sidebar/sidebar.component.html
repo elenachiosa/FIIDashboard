@@ -1,0 +1,16 @@
+<div (click)="hideMenu()"
+     class="ti-close"></div>
+<div class="ps" [perfectScrollbar]="config">
+  <div class="scroll-content">
+    <div class="app-title">
+      <span>FII</span>Dashboard
+    </div>
+    <fd-profile-image></fd-profile-image>
+    <div class="user-info">
+      <span class="user-name">{{userName}}</span>
+      <span class="user-role">{{userYear}}<sup>rd</sup> year {{userRole}}</span>
+      <span class="user-role">group {{myTimetable[0].group}}</span>
+    </div>
+    <fd-main-menu></fd-main-menu>
+  </div>
+</div>
