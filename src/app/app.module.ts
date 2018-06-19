@@ -83,7 +83,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       { path: 'trajectory', component: TrajectoryComponent, data: { animation: 'trajectory' } },
       { path: '404', component: NotFoundComponent, data: { animation: 'notfound' } },
       { path: 'subject/:id', component: SubjectComponent, data: { animation: 'subject' } },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', redirectTo: '404' }
 
     ])
