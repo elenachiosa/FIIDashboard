@@ -11,7 +11,7 @@ import { TimetableService } from '../../../services/timetable.service';
 export class GroupModalComponent implements OnInit {
 
   private activeTimetable: string;
-  private timetable;
+  public timetable;
 
   constructor(public activeModal: NgbActiveModal, timetableService: TimetableService) {
     this.timetable = timetableService.timetable;

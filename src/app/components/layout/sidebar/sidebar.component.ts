@@ -8,10 +8,10 @@ import { TimetableService } from '../../../services/timetable.service';
 })
 export class SideBarComponent implements OnInit {
 
-  private userName : string = "Claudia Ionescu";
-  private userRole: string = "student";
-  private userYear: string = "3";
-  private myTimetable;
+  public userName : string = "Claudia Ionescu";
+  public userRole: string = "student";
+  public userYear: string = "3";
+  public myTimetable;
 
 
   constructor(timetableService: TimetableService) {

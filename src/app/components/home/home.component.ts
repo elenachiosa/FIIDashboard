@@ -10,9 +10,9 @@ import { ProfessorService } from '../../services/professor.service';
 })
 export class HomeComponent implements OnInit {
 
-  private currentSemester: Subject[];
-  private leftovers: Subject[];
-  private professors;
+  public currentSemester: Subject[];
+  public leftovers: Subject[];
+  public professors;
 
   constructor(private subjectService: SubjectService, private professorService: ProfessorService) {
     this.currentSemester = this.subjectService.currentSemester;

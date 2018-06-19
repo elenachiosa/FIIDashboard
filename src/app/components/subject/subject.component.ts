@@ -12,8 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 export class SubjectComponent implements OnInit {
 
   private activeSubject: string;
-  private currentSemester: Subject[];
-  private leftovers: Subject[];
+  public currentSemester: Subject[];
+  public leftovers: Subject[];
   private professors;
   private courses = [14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
   private attendances = [13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];

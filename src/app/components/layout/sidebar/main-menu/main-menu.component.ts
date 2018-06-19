@@ -13,7 +13,7 @@ export class MainMenuComponent implements OnInit {
 
   private currentSemester: Subject[];
   private leftovers: Subject[];
-  private menuItems;
+  public menuItems;
 
   constructor(private subjectService: SubjectService) {
     this.currentSemester = this.subjectService.currentSemester;
@@ -71,7 +71,7 @@ export class MainMenuComponent implements OnInit {
 
   }
 
-  private hideMenu() {
+  public hideMenu() {
     let body = document.getElementsByTagName('body')[0];
 
     body.classList.remove('menu-open');

@@ -8,7 +8,7 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 })
 export class ProfileImageComponent implements OnInit {
 
-  private profileImage: SafeStyle;
+  public profileImage: SafeStyle;
   private base64Image: string;
 
   constructor(private sanitizer: DomSanitizer) {

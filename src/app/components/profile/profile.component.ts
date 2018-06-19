@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  private email: string = "claudia.ionescu@gmail.com";
-  private tel: string = "0745454445";
+  public email: string = "claudia.ionescu@gmail.com";
+  public tel: string = "0745454445";
 
   constructor() { }
 

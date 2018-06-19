@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  private email: string = "ionescu.claudia@gmail.com";
-  private password: string = "test1234";
+  public email: string = "ionescu.claudia@gmail.com";
+  public password: string = "test1234";
 
   constructor() { }
 
