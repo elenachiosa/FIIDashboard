@@ -43,6 +43,11 @@
                     background: white;
                 }
             }
+
+            .subjects strong{
+              text-shadow: 0 0 1px white !important;
+
+            }
         }
 
         h3 {
@@ -77,6 +82,7 @@
                         font-family: $secondary-font;
                         font-size: 20px;
                         font-weight: 300;
+						            text-shadow: 0 0 1px color(mono, regent);
 
                         span {
                             font-size: 12px;
