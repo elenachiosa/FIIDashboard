@@ -3,9 +3,9 @@
 :host {
     display: flex;
     justify-content: space-between;
-    padding: 30px;
-    padding-bottom: 20px;
+    padding: 20px 30px;
     color: color(mono, cutty-sark);
+	  box-shadow: 0 0 30px rgba(0, 0, 0, .15);
 
     [class^='ti-'] {
         margin-right: 7px;
