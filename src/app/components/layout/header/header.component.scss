@@ -3,7 +3,8 @@
 :host {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    padding: 30px;
+    padding-bottom: 20px;
     color: color(mono, cutty-sark);
 
     [class^='ti-'] {

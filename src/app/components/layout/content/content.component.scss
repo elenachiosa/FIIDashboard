@@ -6,8 +6,9 @@
     flex-direction: column;
 
     .ps {
-        height: 100vh;
+        height: calc(100vh - 70px);
         padding: 30px;
+        padding-top: 0;
     }
 }
 
