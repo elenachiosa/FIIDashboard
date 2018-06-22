@@ -1,5 +1,8 @@
 # Introduction
 FIIDashboard - web app for students (UI/Front-end only) to visualize their educational trajectory (grades, attendance etc.).
+
+# View online
+This repository is linked to Heroku. You may view the app at [fiidashboard.herokuapp.com](https://fiidashboard.herokuapp.com).
  
 # Getting Started
 ## Frontend
