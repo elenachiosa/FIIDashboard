@@ -271,6 +271,15 @@
                         }
                     }
 
+                    .check-attendance{
+                      display: flex;
+                      align-items: center;
+
+                      span{
+                        margin-right: 10px;
+                      }
+                    }
+
                     input {
                         flex-shrink: 0;
                         border: 1px solid color(accents, pink);
@@ -351,7 +360,7 @@
                         margin-left: 0 !important;
                     }
                 }
-                input {
+                .check-attendance {
                     margin-top: 30px;
                     margin-bottom: 10px;
                 }

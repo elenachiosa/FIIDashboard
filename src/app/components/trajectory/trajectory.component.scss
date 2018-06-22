@@ -28,8 +28,10 @@
         }
 
         &.active {
+            order: -1;
             opacity: 1;
             color: white;
+            transform: scale(1.02);
             box-shadow: make-boxshadow(color(primary, base));
 
             h3,
@@ -44,9 +46,8 @@
                 }
             }
 
-            .subjects strong{
-              text-shadow: 0 0 1px white !important;
-
+            .subjects strong {
+                text-shadow: 0 0 1px white !important;
             }
         }
 
@@ -82,7 +83,7 @@
                         font-family: $secondary-font;
                         font-size: 20px;
                         font-weight: 300;
-						            text-shadow: 0 0 1px color(mono, regent);
+                        text-shadow: 0 0 1px color(mono, regent);
 
                         span {
                             font-size: 12px;
@@ -111,3 +112,10 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media #{$tablet-landscape} {
+    .trajectory {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
