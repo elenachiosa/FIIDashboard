@@ -53,6 +53,7 @@
             background: linear-gradient(45deg, transparentize(color(mono, porcelain), .4), color(mono, porcelain), transparentize(color(mono, porcelain), .4));
 
             .cell {
+                overflow: visible !important;
                 padding: 10px;
             }
         }
